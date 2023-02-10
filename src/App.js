@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./components/Card";
+import {useEffect, useState} from 'react';
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 function App() {
+
+  
+
+  const pokeApiUri = `https://pokeapi.co/api/v2/pokemon/`;
+  
+  const [currentID,SetCurrentID] = useState(1);
+  const [pokemon,SetPokemon] = useState({});
+
+  useEffect(()=>{
+    fetch(`${pokeApiUri}${currentID}`)
+    .then(response => response.json())
+    .then(pokemonData =>{
+      console.log(pokemonData);
+      SetCurrentID(pokemonData.id);
+      SetPokemon(pokemonData);
+    })
+  }, [currentID]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div><FaArrowLeft/></div>
+      <Card data={pokemon}/>
+      <div><FaArrowRight/></div>
     </div>
   );
 }
