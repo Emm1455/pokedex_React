@@ -54,11 +54,35 @@ function PokeInfo({pokeData}) {
   return (
     <div className='Info'>
         <div className='Stats'><Bar data={data} options={options}/></div>
-        <div>Weight: {pokeData.weight} Kg</div>
+        <div className='Details'>
+            <SingleData label="Weight:" info={`${pokeData.weight/10} Kg`}/>
+            <SingleData label="Height:" info={`${pokeData.height/10} m`}/>
+            <ArrayData label="Abilities:" info={pokeData.abilities}/>
+        </div>
         <div>Type</div>
         <div>Weaknesses</div>
     </div>
   )
+}
+
+function ArrayData({label,info}){
+  const data = info.map(item => 
+    <p key={item.slot}>{item.ability.name}</p>);
+  return(
+    <div className='DataContainer'>
+      <p className='Label'>{label}</p>
+      {data}
+    </div>
+  );
+}
+
+function SingleData({label,info}){
+  return(
+    <div className='DataContainer'>
+      <p className='Label'>{label}</p>
+      <p >{info}</p>
+    </div>
+  );
 }
 
 export default PokeInfo

@@ -1,12 +1,30 @@
 .Info{
-    width: 95%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    font-size: 14px;
 }
 
 .Stats{
     position: relative;
     width: 300px;
   }
+
+.Details{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;    
+    gap: 20px;
+}
+
+.DataContainer{
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+}
+
+.Label{
+    font-weight: bold;
+}

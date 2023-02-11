@@ -15,3 +15,16 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.figure{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    border: solid rgb(2, 187, 2) 2px;
+    border-radius: 10px;
+}
+
+.figure > img{
+    display: block;
+    width: 60%;
+}

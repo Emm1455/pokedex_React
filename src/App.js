@@ -6,28 +6,34 @@ import { FaArrowRight } from "react-icons/fa";
 
 function App() {
 
-  
-
   const pokeApiUri = `https://pokeapi.co/api/v2/pokemon/`;
   
   const [currentID,SetCurrentID] = useState(1);
   const [pokemon,SetPokemon] = useState({});
+  const [isLoading,SetIsLoading] = useState(false);
 
   useEffect(()=>{
+    SetIsLoading(false);
     fetch(`${pokeApiUri}${currentID}`)
     .then(response => response.json())
     .then(pokemonData =>{
-      console.log(pokemonData);
       SetCurrentID(pokemonData.id);
       SetPokemon(pokemonData);
+      SetIsLoading(true);
     })
   }, [currentID]);
 
   return (
     <div className="App">
-      <div><FaArrowLeft/></div>
-      <Card data={pokemon}/>
-      <div><FaArrowRight/></div>
+      {
+        isLoading ? (<>
+          <div><FaArrowLeft/></div>            
+          <Card data={pokemon}/>
+          <div><FaArrowRight/></div>        
+        </>
+        ) : (<></>)
+      }
+      
     </div>
   );
 }
