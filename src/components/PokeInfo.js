@@ -1,5 +1,6 @@
-import React from 'react'
-import "../styles/Info.css"
+import React from 'react';
+import "../styles/Info.css";
+import {v4 as uuid} from 'uuid';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -20,7 +21,7 @@ import {
     Legend
   );
 
-function PokeInfo({pokeData}) {
+function PokeInfo({pokeData,weaknesses}) {
     const data = {
         labels: ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"],
         datasets: [
@@ -57,23 +58,12 @@ function PokeInfo({pokeData}) {
         <div className='Details'>
             <SingleData label="Weight:" info={`${pokeData.weight/10} Kg`}/>
             <SingleData label="Height:" info={`${pokeData.height/10} m`}/>
-            <ArrayData label="Abilities:" info={pokeData.abilities}/>
+            <AbilitiesData label="Abilities:" info={pokeData.abilities}/>
         </div>
         <div>Type</div>
-        <div>Weaknesses</div>
+        <WeaknessesData label="Weaknesses:" info={weaknesses}/>
     </div>
   )
-}
-
-function ArrayData({label,info}){
-  const data = info.map(item => 
-    <p key={item.slot}>{item.ability.name}</p>);
-  return(
-    <div className='DataContainer'>
-      <p className='Label'>{label}</p>
-      {data}
-    </div>
-  );
 }
 
 function SingleData({label,info}){
@@ -84,5 +74,32 @@ function SingleData({label,info}){
     </div>
   );
 }
+
+function AbilitiesData({label,info}){
+  const data = info.map(item => 
+    <p key={item.slot}>{item.ability.name}</p>);
+  return(
+    <div className='DataContainer'>
+      <p className='Label'>{label}</p>
+      {data}
+    </div>
+  );
+}
+
+function WeaknessesData({label,info}){
+  const data = info.map(item => 
+    <p className='Box' key={uuid()}>{item}</p>);
+  return(
+    <div className='DataContainer DataBox'>
+      <div className='Label'>
+        <p>{label}</p>
+      </div>
+      <div className='Details'>
+        {data}
+      </div>
+    </div>
+  );
+}
+
 
 export default PokeInfo

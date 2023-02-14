@@ -5,6 +5,6 @@ This project is an pokedex created using React and requests to the open Pokemon 
 ## Screenshots
 
 <picture>
-    <img src="https://imgur.com/8tHiyGi.png" width= "100%" alt= "Desktop view">
+    <img src="https://imgur.com/8tHiyGi.png" width= "400px" alt= "Desktop view">
 </picture>
 
