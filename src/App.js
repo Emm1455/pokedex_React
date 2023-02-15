@@ -1,5 +1,6 @@
 import "./App.css";
 import Card from "./components/Card";
+import Button from "./components/Button";
 import {useEffect, useState} from 'react';
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
@@ -63,13 +64,26 @@ function App() {
     })
   }, [currentID]);
 
+  const limitMaker = function (limit,type){
+    if(!type){ // false for lower limit
+      if(currentID > limit){
+        SetCurrentID(currentID-1);
+      }
+    }
+    else{
+      if(currentID <= limit){
+        SetCurrentID(currentID+1);
+      }
+    }
+  }
+
   return (
     <div className="App">
       {
         isLoading ? (<>
-          <div><FaArrowLeft/></div>            
+          <Button action={() => limitMaker(1,false)} icon={<FaArrowLeft/>}/>
           <Card data={pokemon} weaknesses={weaknesses}/>      
-          <div><FaArrowRight/></div>        
+          <Button action={() => limitMaker(151,true)} icon={<FaArrowRight/>}/>
         </>
         ) : (<></>)
       }
