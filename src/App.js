@@ -1,9 +1,11 @@
 import "./App.css";
 import Card from "./components/Card";
 import Button from "./components/Button";
+import CustomCard from "./components/CustomCard";
 import {useEffect, useState} from 'react';
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { ScopedCssBaseline } from "@mui/material";
 
 function App() {
 
@@ -82,8 +84,10 @@ function App() {
       {
         isLoading ? (<>
           <Button action={() => limitMaker(1,false)} icon={<FaArrowLeft/>}/>
-          <Card data={pokemon} weaknesses={weaknesses}/>      
+          {/* <Card data={pokemon} weaknesses={weaknesses}/>       */}
+          <CustomCard img={pokemon.sprites.other['official-artwork'].front_default} data={pokemon} weaknesses={weaknesses}/>
           <Button action={() => limitMaker(151,true)} icon={<FaArrowRight/>}/>
+          
         </>
         ) : (<></>)
       }
