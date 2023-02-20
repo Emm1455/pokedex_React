@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/Info.css";
+import "../../styles/Stats.css";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -19,20 +19,20 @@ ChartJS.register(
   Legend
 );
 
-function Stats({pokeData}){
+function Stats({pokeData,color}){
     const GetStats = function (Data) {
     const stats = Data.stats.map((item) => item.base_stat);
     return stats;
   };
 
   let data = {
-    labels: ["HP","Attack","Defense","Special Attack","Special Defense","Speed",],
+    labels: ["HP","Attack","Defense","Special Attack","Special Defense","Speed"],
     datasets: [
       {
         label: "Stats",
         data: GetStats(pokeData),
-        backgroundColor: "rgba(32, 201, 77, 0.2)",
-        borderColor: "rgba(32, 201, 77, 1)",
+        backgroundColor: `rgba(${color}, 0.2)`,
+        borderColor: `rgba(${color}, 1)`,
         borderWidth: 1,
       },
     ],
@@ -40,18 +40,31 @@ function Stats({pokeData}){
 
   const options = {
     responsive: true,
-    aspectRatio: 3 / 2,
+    // aspectRatio: 3 / 2,
+    devicePixelRatio:2,
+    scales:{
+      x:{
+        grid:{
+          display: false,
+        },
+        ticks:{
+          color: "#263238",
+          font:{
+            size: 12
+          }
+        }
+      },
+      y:{        
+        ticks:{
+          color: "#263238",
+        }
+      }
+    },
     plugins: {
       legend: {
-        position: "bottom",
         display: false,
-      },
-      title: {
-        display: true,
-        text: "Stats",
-        color: "rgb(10,10,10)",
-        align: "start",
-      },
+      }
+      
     },
   };
   return(

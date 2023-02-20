@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/Info.css";
 import { v4 as uuid } from "uuid";
 import { Bar } from "react-chartjs-2";
 import {
