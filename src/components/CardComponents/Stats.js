@@ -1,4 +1,3 @@
-import React from 'react';
 import "../../styles/Stats.css";
 import { Bar } from "react-chartjs-2";
 import {
