@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 
 function Preview() {
   return (
-    <Stack spacing={1} width="400px">
+    <Stack spacing={1} width="450px">
       <Skeleton variant="rounded" height={88} />
       <Skeleton variant="rounded" height={200} />
       <Skeleton variant="rounded" height={400} />

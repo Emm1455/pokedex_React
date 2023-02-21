@@ -41,7 +41,6 @@ function UseGetData(initialID) {
     .then(specie => specie.flavor_text_entries)
     .then(entries => {
       const version = CheckVersion(entries);
-      console.log(version);
       const result = entries.filter(entry => entry.language.name == 'en' && entry.version.name == version)[0];
       SetInfo(result.flavor_text);
     });
@@ -57,6 +56,7 @@ function UseGetData(initialID) {
   const GetWeaknesses = function (data) {
     let doubleDamage = [];
     let halfDamage = [];
+    let noDamage = [];
     let result = [];
     data.forEach((item) => {
       fetch(item.type.url)
@@ -64,13 +64,17 @@ function UseGetData(initialID) {
       .then((typeData) => {
         doubleDamage = [
           ...doubleDamage,
-          ...GetDamage(typeData.damage_relations.double_damage_from),
+          ...GetDamage(typeData.damage_relations.double_damage_from)
           ];
           halfDamage = [
             ...halfDamage,
-            ...GetDamage(typeData.damage_relations.half_damage_from),
+            ...GetDamage(typeData.damage_relations.half_damage_from)
           ];
-          result = FilterWeaknesses(doubleDamage, halfDamage);
+          noDamage = [
+            ...noDamage,
+            ...GetDamage(typeData.damage_relations.no_damage_from)
+          ];
+          result = FilterWeaknesses(doubleDamage, halfDamage, noDamage);
           SetWeaknesses(result);
         });
       });
@@ -84,14 +88,17 @@ function UseGetData(initialID) {
       return result;
     };
   
-    const FilterWeaknesses = function (doubleDamage, halfDamage) {
-      let result = [];
+    const FilterWeaknesses = function (doubleDamage, halfDamage, noDamage) {
+      let elements = [];
       doubleDamage.forEach((item) => {
         if (!halfDamage.includes(item)) {
-          result.push(item);
+          if(!noDamage.includes(item)){
+            elements.push(item);
+          }
         }
       });
-      return result;
+      const result = new Set(elements);
+      return [...result];
     };
   
   return [pokemon, weaknesses ,isLoading, info ,limitMaker];

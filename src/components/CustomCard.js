@@ -59,7 +59,7 @@ export default function MediaCard({ data, weaknesses, img, info, limitMaker }) {
         </IconButton>
       <Card
       className="CustomCard"
-      sx={{ width: 400, border: 4, borderColor: "#7B7B7B", borderRadius: 2 }}
+      sx={{ width: 450, border: 4, borderColor: "#7B7B7B", borderRadius: 2 }}
       >
         <CardHeader
           sx={{ bgcolor: `rgb(${StrongColor})` }}
