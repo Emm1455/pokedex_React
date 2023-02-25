@@ -1,0 +1,36 @@
+.Form-Box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(140deg, rgba(111,201,68,1) 40%, rgba(220,220,220,1) 50%, rgba(111,201,68,1) 60%);
+    border: solid rgb(47, 107, 19) 3px;
+    border-radius: 20px;
+    padding: 20px 40px;
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Form > label {
+    font-weight: bold;
+}
+
+.Text-Box {
+    padding: 3px 0;
+    border-radius: 5px;
+}
+
+.Submit {
+    padding: 5px 0;
+    /* width: 90%; */
+    /* align-self: center; */
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* .Form > * {
+    border: solid red 2px;
+} */

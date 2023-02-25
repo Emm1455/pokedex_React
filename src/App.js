@@ -1,28 +1,18 @@
 import "./App.css";
-import CustomCard from "./components/CustomCard";
-import UseGetData from "./components/CustomHooks/UseGetData";
-import Preview from './components/Preview'
+
+import SignInComponent from './components/SignInComponent';
+import {Routes, Route} from 'react-router-dom';
+import PokedexComponent from "./components/PokedexComponent";
 
 function App() {
-  const [pokemon, weaknesses, isLoading, info, limitMaker] = UseGetData(1);
+  
 
   return (
     <div className="App">
-      {isLoading ? (
-        <div className="CustomCard">
-          <CustomCard
-            img={pokemon.sprites.other["official-artwork"].front_default}
-            data={pokemon}
-            weaknesses={weaknesses}
-            info={info}
-            limitMaker={limitMaker}
-          />
-        </div>
-      ) : (
-        <>
-          <Preview/>
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={<SignInComponent/>}/>
+        <Route path="/pokedex" element={<PokedexComponent/>}/>
+      </Routes>
     </div>
   );
 }
