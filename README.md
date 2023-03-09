@@ -13,11 +13,11 @@ It was created using React with React-chartjs-2 and Material ui libraries, it re
 </picture>
 
 ## Process
-###Built with
+### Built with
 - React.js
 - Material ui library
 - CSS
-###Pokemon API
+### Pokemon API
 The open pokemon API allow to pick up information of 1008 Pokemons.
 - [Pokemon API](https://pokeapi.co/?ref=public-apis)
 This information contents raw data from each pokemon like: Name, types, images, abilities, stats and info. Other information like weaknesses have to be calculated filtering the information given of types
