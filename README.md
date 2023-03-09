@@ -1,9 +1,6 @@
-#Pokecard cosuming pokedex API
+# Pokecard cosuming pokedex API
 React app consuming pokemon API and using Material ui library.
 
-**Table of Content**
-
-[TOC]
 
 ## Overview
 This project is a web application that shows pokemon cards from the first generation of pokemon.
@@ -14,10 +11,6 @@ It was created using React with React-chartjs-2 and Material ui libraries, it re
 <picture>
     <img src="https://imgur.com/vY9QFFH.png" width= "400px" alt= "Desktop view">
 </picture>
-
-### Links
-
-- Live site URL: [Netlify Site](#)
 
 ## Process
 ###Built with
