@@ -8,3 +8,9 @@
 .CustomCard{
   position: relative;
 }
+
+.SideBar{
+  position: absolute;
+  right: 0;
+  top: 0;
+}

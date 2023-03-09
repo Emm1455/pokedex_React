@@ -18,14 +18,21 @@ ChartJS.register(
   Legend
 );
 
-function Stats({pokeData,color}){
-    const GetStats = function (Data) {
+function Stats({ pokeData, color }) {
+  const GetStats = function (Data) {
     const stats = Data.stats.map((item) => item.base_stat);
     return stats;
   };
 
   let data = {
-    labels: ["HP","Attack","Defense","Special Attack","Special Defense","Speed"],
+    labels: [
+      "HP",
+      "Attack",
+      "Defense",
+      "Special Attack",
+      "Special Defense",
+      "Speed",
+    ],
     datasets: [
       {
         label: "Stats",
@@ -40,35 +47,34 @@ function Stats({pokeData,color}){
   const options = {
     responsive: true,
     // aspectRatio: 3 / 2,
-    devicePixelRatio:2,
-    scales:{
-      x:{
-        grid:{
+    devicePixelRatio: 2,
+    scales: {
+      x: {
+        grid: {
           display: false,
         },
-        ticks:{
+        ticks: {
           color: "#263238",
-          font:{
-            size: 12
-          }
-        }
+          font: {
+            size: 12,
+          },
+        },
       },
-      y:{        
-        ticks:{
+      y: {
+        ticks: {
           color: "#263238",
-        }
-      }
+        },
+      },
     },
     plugins: {
       legend: {
         display: false,
-      }
-      
+      },
     },
   };
-  return(
-    <div className='Stats'>
-        <Bar data={data} options={options} />
+  return (
+    <div className="Stats">
+      <Bar data={data} options={options} />
     </div>
   );
 }

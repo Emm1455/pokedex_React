@@ -62,7 +62,7 @@ function SignInComponent(props) {
 
     return (
         <div className="Form-Box">
-            <h3>Sign In</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="pokemon logo"></img>
             <form onSubmit={handleSubmit} className="Form"> 
                 <label>Email: </label>
                 <input type={"email"}
@@ -83,7 +83,7 @@ function SignInComponent(props) {
                     />
                     Remember me
                 </label>
-                <input type="submit" value="Submit" className="Submit"/>
+                <input type="submit" value="Sign In" className="Submit"/>
             </form>
         </div>
     )
