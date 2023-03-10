@@ -1,25 +1,25 @@
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import {useNavigate} from 'react-router-dom';
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
+import { useNavigate } from 'react-router-dom'
 
-function SideBarComponent() {
-    const navigate = useNavigate();
-    const Logout = function(){
-        navigate("/");
-    }
+function SideBarComponent () {
+  const navigate = useNavigate()
+  const Logout = function () {
+    navigate('/')
+  }
 
-    return (
+  return (
     <Box
       sx={{
         display: 'flex',
         margin: 1,
-        gap:2,
+        gap: 2
       }}
     >
-        <Button key="MyPokemons">My Pokemons</Button>
-        <Button onClick={() => Logout()} key="LogOut">LogOut</Button>
+      <Button key='MyPokemons'>My Pokemons</Button>
+      <Button onClick={() => Logout()} key='LogOut'>LogOut</Button>
     </Box>
-  );
+  )
 }
 
-export default SideBarComponent;
+export default SideBarComponent
