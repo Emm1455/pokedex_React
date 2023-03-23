@@ -8,7 +8,6 @@ function SignInComponent (props) {
   const [rememberMe, setRememberMe] = useState(false)
   const [emailErrorS, setEmailError] = useState('')
   const [passwordErrorS, setPasswordError] = useState('')
-
   const navigate = useNavigate()
 
   const homePage = () => {

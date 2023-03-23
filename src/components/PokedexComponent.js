@@ -2,10 +2,13 @@ import UseGetData from './CustomHooks/UseGetData'
 import CustomCard from './CustomCard'
 import Preview from './Preview'
 import SideBarComponent from './SideBarComponent'
+import ThemeContext from './ThemeContext'
+import { useContext } from 'react'
 import '../App.css'
 
 function PokedexComponent () {
   const [pokemon, weaknesses, isLoading, info, limitMaker] = UseGetData(1)
+  const { theme, handleTheme } = useContext(ThemeContext)
   return (
     <>
       {isLoading
@@ -21,8 +24,8 @@ function PokedexComponent () {
               />
 
             </div>
-            <div className='SideBar'>
-              <SideBarComponent />
+            <div className={`SideBar ${theme}`}>
+              <SideBarComponent myFunction={handleTheme} />
             </div>
           </>
           )

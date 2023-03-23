@@ -2,7 +2,7 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import { useNavigate } from 'react-router-dom'
 
-function SideBarComponent () {
+function SideBarComponent ({ myFunction }) {
   const navigate = useNavigate()
   const Logout = function () {
     navigate('/')
@@ -16,7 +16,7 @@ function SideBarComponent () {
         gap: 2
       }}
     >
-      <Button key='MyPokemons'>My Pokemons</Button>
+      <Button key='MyPokemons' onClick={myFunction}>Toggle Theme</Button>
       <Button onClick={() => Logout()} key='LogOut'>LogOut</Button>
     </Box>
   )

@@ -1,6 +1,8 @@
 function PageNotFoundComponent () {
   return (
-    <div>Page Not Found Component</div>
+    <>
+      <div>Page Not Found Component</div>
+    </>
   )
 }
 
