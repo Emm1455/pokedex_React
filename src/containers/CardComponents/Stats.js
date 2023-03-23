@@ -1,4 +1,4 @@
-import '../../styles/Stats.css'
+import Box from '@mui/material/Box';
 import { Bar } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -73,9 +73,9 @@ function Stats ({ pokeData, color }) {
     }
   }
   return (
-    <div className='Stats'>
+    <Box sx={{ position: 'relative', width: '90%' }}>
       <Bar data={data} options={options} />
-    </div>
+    </Box>
   )
 }
 

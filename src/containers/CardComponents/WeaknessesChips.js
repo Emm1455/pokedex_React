@@ -10,6 +10,7 @@ function WeaknessesChips ({ data, info }) {
         color: info.fgColor[info.name.indexOf(item)],
         fontSize: 14
       }}
+      size='small'
       label={item}
     />
   ))

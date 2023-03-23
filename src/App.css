@@ -1,24 +1,9 @@
-.App {
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-}
-
-.CustomCard{
-  position: relative;
-}
-
-.SideBar{
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
 .light{
   background-color: rgb(240, 240, 240);
+  color: rgb(44, 44, 44)
 }
-
+  
 .dark{
   background-color: rgb(44, 44, 44);
+  color:rgb(240, 240, 240);
 }

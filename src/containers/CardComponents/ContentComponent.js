@@ -9,7 +9,7 @@ import Abilities from './AbilitiesChips'
 function ContentComponent ({ SoftColor, StrongColor, data, weaknesses, info, chipInfo }) {
   return (
     <CardContent
-      sx={{ bgcolor: `rgba(${SoftColor},0.2)`, padding: '8px 16px' }}
+      sx={{ bgcolor: `rgba(${SoftColor},0.2)`, padding: '8px 12px', '&:last-child': { paddingBottom: '0px' } }}
     >
       <Typography variant='body2' fontWeight='bold'>
         Info:
@@ -41,16 +41,29 @@ function ContentComponent ({ SoftColor, StrongColor, data, weaknesses, info, chi
         <Typography variant='body2' fontWeight='bold'>
           Abilities:
         </Typography>
-        <Abilities data={data.abilities} borderColor={`rgb(${StrongColor})`} />
-      </Box>
-      <Typography variant='body2' fontWeight='bold'>
-        Weaknesses:
-      </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'center', pt: 0.5 }}>
-        <Stack direction='row' spacing={1.5}>
-          <Weaknesses data={weaknesses} info={chipInfo} />
+        <Stack direction='row' spacing={1}>
+          <Abilities data={data.abilities} borderColor={`rgb(${StrongColor})`} />
         </Stack>
       </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          // alignItems: 'center',
+          gap: 2,
+          pb: 1
+        }}
+      >
+        <Typography variant='body2' fontWeight='bold'>
+          Weaknesses:
+        </Typography>
+        {/* <Box sx={{ display: 'flex', justifyContent: 'center', pt: 0.5 }}> */}
+        <Stack direction='row' sx={{ flexWrap: 'wrap', gap: 1 }}>
+          <Weaknesses data={weaknesses} info={chipInfo} />
+        </Stack>
+        {/* </Box> */}
+      </Box>
+
       <Typography variant='body2' fontWeight='bold'>
         Stats:
       </Typography>
