@@ -4,13 +4,10 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
-import { ColorsGenerator, chipInfo } from './CardComponents/Colors';
-import HeaderComponent from './CardComponents/HeaderComponent';
-import ContentComponent from './CardComponents/ContentComponent';
-import UseSetFavorite from '../hooks/UseSetFavorite';
+import { ColorsGenerator, chipInfo } from '../functions/Colors';
+import PokemonCardHeader from './PokemonCardHeader';
+import PokemonCardContent from './PokemonCardContent';
 
 export default function MediaCard ({ data, weaknesses, img, info, limitMaker }) {
   const myTypes = data.types.map((item) => item.type.name);
@@ -18,9 +15,6 @@ export default function MediaCard ({ data, weaknesses, img, info, limitMaker }) 
   const BaseColor = ColorsGenerator(0, myTypes[0]);
   const StrongColor = ColorsGenerator(-1, myTypes[0]);
   const SoftColor = ColorsGenerator(1, myTypes[0]);
-
-  const [isFavorite, addToFavorites, removeFromFavorites] =
-    UseSetFavorite(false);
 
   return (
     <>
@@ -41,49 +35,11 @@ export default function MediaCard ({ data, weaknesses, img, info, limitMaker }) 
       >
         <ArrowBackIcon fontSize='inherit' />
       </IconButton>
-      {isFavorite
-        ? (
-          <IconButton
-            sx={{
-              position: 'absolute',
-              right: 8,
-              top: 7,
-              zIndex: 1,
-              border: 0,
-              color: '#F2F2F2'
-            }}
-            size='large'
-            aria-label='add to favorites'
-            component='button'
-            onClick={() => removeFromFavorites()}
-          >
-            <FavoriteIcon fontSize='inherit' />
-          </IconButton>
-          )
-        : (
-          <IconButton
-            sx={{
-              position: 'absolute',
-              right: 8,
-              top: 7,
-              zIndex: 1,
-              border: 0,
-              color: '#F2F2F2'
-            }}
-            size='large'
-            aria-label='add to favorites'
-            component='button'
-            onClick={() => addToFavorites()}
-          >
-            <FavoriteBorderIcon fontSize='inherit' />
-          </IconButton>
-          )}
-
       <Card
         className='CustomCard'
         sx={{ width: 380, border: 4, borderColor: '#7B7B7B', borderRadius: 2 }}
       >
-        <HeaderComponent
+        <PokemonCardHeader
           StrongColor={StrongColor}
           SoftColor={SoftColor}
           data={data}
@@ -106,7 +62,7 @@ export default function MediaCard ({ data, weaknesses, img, info, limitMaker }) 
             alt='pokemon'
           />
         </Box>
-        <ContentComponent
+        <PokemonCardContent
           SoftColor={SoftColor}
           data={data}
           StrongColor={StrongColor}

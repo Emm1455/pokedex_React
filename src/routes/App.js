@@ -5,7 +5,7 @@ import Home from '../pages/Home'
 import LogIn from '../pages/LogIn'
 import Favorites from '../pages/Favorites'
 import PageNotFound from '../pages/PageNotFound'
-import ThemeContext from '../components/ThemeContext'
+import ThemeContext from '../hooks/ThemeContext'
 import { Routes, Route } from 'react-router-dom'
 import { useContext } from 'react'
 

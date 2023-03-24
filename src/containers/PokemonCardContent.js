@@ -2,11 +2,11 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
-import Stats from './Stats'
-import Weaknesses from './WeaknessesChips'
-import Abilities from './AbilitiesChips'
+import Stats from '../components/Stats'
+import Weaknesses from '../components/WeaknessesChips'
+import Abilities from '../components/AbilitiesChips'
 
-function ContentComponent ({ SoftColor, StrongColor, data, weaknesses, info, chipInfo }) {
+function PokemonCardContent ({ SoftColor, StrongColor, data, weaknesses, info, chipInfo }) {
   return (
     <CardContent
       sx={{ bgcolor: `rgba(${SoftColor},0.2)`, padding: '8px 12px', '&:last-child': { paddingBottom: '0px' } }}
@@ -74,4 +74,4 @@ function ContentComponent ({ SoftColor, StrongColor, data, weaknesses, info, chi
   )
 }
 
-export default ContentComponent
+export default PokemonCardContent

@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
-import ButtonComponent from '../components/ButtonComponent'
-import SwitchThemeComponent from '../components/SwitchThemeComponent'
-import ThemeContext from '../components/ThemeContext'
+import ThemeContext from '../hooks/ThemeContext'
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Switch } from '@mui/material'
 
 function Header () {
   const navigate = useNavigate()
@@ -26,16 +26,10 @@ function Header () {
       className={ThemeData.theme}
     >
       <Stack spacing={1} direction='row' sx={{ marginRight: '20px' }}>
-        <ButtonComponent
-          text='Pokemon cards'
-          action={() => navigate('/pokemon-cards')}
-        />
-        <ButtonComponent
-          text='Favorites'
-          action={() => navigate('/favorites')}
-        />
-        <ButtonComponent text='Login' action={() => navigate('/login')} />
-        <SwitchThemeComponent state={checked} handleChange={handleChange} />
+        <Button variant='text' onClick={() => navigate('/pokemon-cards')} sx={{ textTransform: 'none' }}>Pokemon cards</Button>
+        <Button variant='text' onClick={() => navigate('/favorites')} sx={{ textTransform: 'none' }}>Favorites</Button>
+        <Button variant='text' onClick={() => navigate('/login')} sx={{ textTransform: 'none' }}>Login</Button>
+        <Switch checked={checked} onChange={handleChange} />
       </Stack>
     </Box>
   )

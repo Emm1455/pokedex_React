@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import ThemeContext from '../components/ThemeContext'
+import ThemeContext from '../hooks/ThemeContext'
 import { useContext } from 'react'
 function Footer () {
   const ThemeData = useContext(ThemeContext)
