@@ -2,6 +2,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import ThemeContext from '../hooks/ThemeContext'
+import CheckTheme from '../functions/CheckTheme'
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Switch } from '@mui/material'
@@ -9,7 +10,7 @@ import { Switch } from '@mui/material'
 function Header () {
   const navigate = useNavigate()
   const ThemeData = useContext(ThemeContext)
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(CheckTheme() === 'dark')
 
   const handleChange = (event) => {
     setChecked(event.target.checked)
@@ -20,7 +21,6 @@ function Header () {
       sx={{
         display: 'flex',
         justifyContent: 'flex-end',
-        // borderBottom: "1px solid rgb(40,40,40)",
         height: '6vh'
       }}
       className={ThemeData.theme}
